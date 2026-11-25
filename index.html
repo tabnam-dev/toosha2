@@ -1,0 +1,772 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Multiverse ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+  --gold: #f3d49a;
+  --pink: #ffb7d5;
+  --purple: #a58bff;
+  --bg: #080719;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+#stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: .15; transform: scale(.7); }
+  to { opacity: 1; transform: scale(1.5); }
+}
+
+.shooting-star {
+  position: absolute;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, white, transparent);
+  transform: rotate(-35deg);
+  animation: shoot 5s linear infinite;
+  opacity: 0;
+}
+
+@keyframes shoot {
+  0% { transform: translate(0,0) rotate(-35deg); opacity: 0; }
+  10% { opacity: 1; }
+  30% { transform: translate(-400px,300px) rotate(-35deg); opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  width: min(1000px, 92%);
+  margin: auto;
+  padding: 65px 0;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.eyebrow {
+  color: var(--gold);
+  letter-spacing: 5px;
+  font-size: 11px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+h1, h2, h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: clamp(45px, 9vw, 85px);
+  line-height: 1;
+  background: linear-gradient(120deg, white, var(--pink), var(--gold));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  color: #c5bbd6;
+  margin-top: 20px;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+.anniversary {
+  margin: 35px auto;
+  padding: 25px;
+  max-width: 550px;
+  border: 1px solid #ffffff25;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #ffffff0c, #ffb7d50b);
+  backdrop-filter: blur(10px);
+}
+
+.anniversary h2 {
+  color: var(--pink);
+  font-size: 35px;
+  margin-bottom: 8px;
+}
+
+.anniversary p {
+  color: #d4c8e6;
+  font-size: 13px;
+}
+
+.heart {
+  display: inline-block;
+  color: #ff8ebc;
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+
+.galaxy {
+  width: 180px;
+  height: 180px;
+  margin: 35px auto;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.planet {
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%, #ffd4ed, #a36bd6 50%, #37206f);
+  box-shadow: 0 0 35px #a36bd688, 0 0 80px #a36bd833;
+  animation: float 4s ease-in-out infinite;
+}
+
+.orbit {
+  position: absolute;
+  width: 175px;
+  height: 65px;
+  border: 1px solid #e8c9ff99;
+  border-radius: 50%;
+  transform: rotate(-25deg);
+  animation: rotate 12s linear infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(-7px); }
+  50% { transform: translateY(7px); }
+}
+
+@keyframes rotate {
+  to { transform: rotate(335deg); }
+}
+
+.section-title {
+  text-align: center;
+  font-size: 34px;
+  margin-bottom: 25px;
+  color: var(--gold);
+}
+
+.universes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.universe {
+  border: 1px solid #ffffff20;
+  border-radius: 18px;
+  padding: 25px 20px;
+  background: linear-gradient(145deg, #ffffff12, #ffffff04);
+  cursor: pointer;
+  transition: .4s;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.universe:hover {
+  transform: translateY(-8px);
+  border-color: var(--pink);
+  box-shadow: 0 12px 35px #b27bff22;
+}
+
+.universe-icon {
+  font-size: 38px;
+  display: block;
+  margin-bottom: 14px;
+  animation: float 4s ease-in-out infinite;
+}
+
+.universe h3 {
+  font-size: 23px;
+  margin-bottom: 8px;
+}
+
+.universe p {
+  font-size: 11px;
+  color: #bdb3ce;
+}
+
+.lock {
+  margin-top: 17px;
+  display: inline-block;
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 2px;
+}
+
+.progress {
+  text-align: center;
+  color: #bdb3ce;
+  font-size: 12px;
+  margin-top: 30px;
+}
+
+.progress-bar {
+  height: 5px;
+  background: #ffffff18;
+  border-radius: 10px;
+  max-width: 400px;
+  margin: 12px auto;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--pink), var(--gold));
+  transition: .5s;
+}
+
+footer {
+  text-align: center;
+  margin-top: 70px;
+  color: #9d91b1;
+  font-size: 12px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background: #050411ed;
+  backdrop-filter: blur(15px);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal.active {
+  display: flex;
+  animation: fadeIn .4s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  width: min(650px, 100%);
+  max-height: 85vh;
+  overflow-y: auto;
+  border: 1px solid #ffffff25;
+  border-radius: 22px;
+  padding: 35px;
+  background: linear-gradient(145deg, #211633, #100d25);
+  text-align: center;
+  animation: rise .5s;
+}
+
+@keyframes rise {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal h2 {
+  font-size: 36px;
+  color: var(--gold);
+  margin-bottom: 15px;
+}
+
+.modal p {
+  color: #e3d9ed;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 21px;
+  line-height: 1.8;
+  white-space: pre-line;
+  text-align: left;
+}
+
+.password-input {
+  width: 100%;
+  padding: 15px;
+  margin: 20px 0 12px;
+  border-radius: 10px;
+  border: 1px solid #ffffff35;
+  background: #ffffff0c;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  letter-spacing: 8px;
+  outline: none;
+}
+
+.password-input:focus {
+  border-color: var(--pink);
+}
+
+.btn {
+  padding: 13px 25px;
+  border: 1px solid var(--gold);
+  border-radius: 30px;
+  background: transparent;
+  color: var(--gold);
+  cursor: pointer;
+  transition: .3s;
+  margin: 6px;
+  font-family: inherit;
+}
+
+.btn:hover {
+  background: var(--gold);
+  color: #171023;
+  transform: scale(1.04);
+}
+
+.error {
+  color: #ff9cbb;
+  font-size: 12px;
+  min-height: 18px;
+}
+
+.story-title {
+  font-size: 43px !important;
+  margin-bottom: 22px !important;
+}
+
+.story-decoration {
+  font-size: 40px;
+  margin: 15px;
+}
+
+.close {
+  float: right;
+  font-size: 25px;
+  color: #d9c8eb;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.final-message {
+  text-align: center !important;
+  font-size: 25px !important;
+  color: var(--pink) !important;
+  margin-top: 25px;
+}
+
+.celebration {
+  animation: heartbeat 1.3s infinite;
+  display: inline-block;
+}
+
+@media(max-width:600px) {
+  .container { padding: 40px 0; }
+  .modal-content { padding: 25px 20px; }
+  .modal p { font-size: 19px; }
+  .universe { padding: 22px 15px; }
+}
+</style>
+</head>
+
+<body>
+
+<div id="stars"></div>
+
+<main class="container">
+
+<header>
+  <div class="eyebrow">A journey beyond time and space</div>
+  <h1>The Multiverse<br>of Us</h1>
+  <p class="subtitle">FIVE UNIVERSES. ONE LOVE. INFINITE POSSIBILITIES.</p>
+
+  <div class="galaxy">
+    <div class="orbit"></div>
+    <div class="planet"></div>
+  </div>
+
+  <div class="anniversary">
+    <h2>Happy Anniversary <span class="heart">♥</span></h2>
+    <p>November 22</p>
+    <p style="margin-top:12px">
+      One year, countless memories, and a million possible universes.
+    </p>
+  </div>
+</header>
+
+<h2 class="section-title">Choose Your Universe</h2>
+
+<div class="universes">
+
+  <div class="universe" onclick="openLock(0)">
+    <span class="universe-icon">🌌</span>
+    <h3>Universe 01</h3>
+    <p>The Universe Where We Never Met</p>
+    <span class="lock">🔒 LOCKED</span>
+  </div>
+
+  <div class="universe" onclick="openLock(1)">
+    <span class="universe-icon">💍</span>
+    <h3>Universe 02</h3>
+    <p>The Universe Where We're Ariana and Laith</p>
+    <span class="lock">🔒 LOCKED</span>
+  </div>
+
+  <div class="universe" onclick="openLock(2)">
+    <span class="universe-icon">🌷</span>
+    <h3>Universe 03</h3>
+    <p>The Universe Where We Grew Up Together</p>
+    <span class="lock">🔒 LOCKED</span>
+  </div>
+
+  <div class="universe" onclick="openLock(3)">
+    <span class="universe-icon">🐭</span>
+    <h3>Universe 04</h3>
+    <p>The Universe Where We're Mickey and Minnie</p>
+    <span class="lock">🔒 LOCKED</span>
+  </div>
+
+  <div class="universe" onclick="openLock(4)">
+    <span class="universe-icon">❤️</span>
+    <h3>Universe 05</h3>
+    <p>The Universe I'm Most Grateful For</p>
+    <span class="lock">🔒 LOCKED</span>
+  </div>
+
+</div>
+
+<div class="progress">
+  <span id="progressText">0 of 5 universes discovered</span>
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+</div>
+
+<footer>
+  Made with love, for my favourite person in every universe.
+  <p style="margin-top:12px">♡ 22.11 ♡</p>
+</footer>
+
+</main>
+
+<!-- PASSWORD SCREEN -->
+
+<div class="modal" id="lockModal">
+  <div class="modal-content">
+    <button class="close" onclick="closeModal()">×</button>
+    <div class="story-decoration">🔐✨</div>
+    <h2>A Universe Awaits</h2>
+    <p style="text-align:center;font-size:16px">
+      Some things are worth unlocking.
+      Enter the secret code to discover this universe.
+    </p>
+
+    <input
+      type="password"
+      id="password"
+      class="password-input"
+      placeholder="••••"
+      maxlength="4"
+      inputmode="numeric"
+    >
+
+    <div class="error" id="error"></div>
+
+    <button class="btn" onclick="unlockUniverse()">
+      UNLOCK UNIVERSE ✨
+    </button>
+  </div>
+</div>
+
+<!-- STORY SCREEN -->
+
+<div class="modal" id="storyModal">
+  <div class="modal-content">
+    <button class="close" onclick="closeStory()">×</button>
+    <div class="story-decoration" id="storyIcon"></div>
+    <h2 class="story-title" id="storyTitle"></h2>
+    <p id="storyText"></p>
+    <div id="finalExtra"></div>
+    <button class="btn" onclick="nextUniverse()">NEXT UNIVERSE →</button>
+    <button class="btn" onclick="closeStory()">CLOSE</button>
+  </div>
+</div>
+
+<script>
+
+// CREATE STARS
+
+const starContainer = document.getElementById('stars');
+
+for(let i = 0; i < 130; i++) {
+  const star = document.createElement('div');
+  star.className = 'star';
+  star.style.left = Math.random() * 100 + '%';
+  star.style.top = Math.random() * 100 + '%';
+  star.style.width = (Math.random() * 3 + 1) + 'px';
+  star.style.height = star.style.width;
+  star.style.animationDelay = Math.random() * 4 + 's';
+  starContainer.appendChild(star);
+}
+
+for(let i = 0; i < 5; i++) {
+  const shooting = document.createElement('div');
+  shooting.className = 'shooting-star';
+  shooting.style.top = Math.random() * 70 + '%';
+  shooting.style.left = (30 + Math.random() * 70) + '%';
+  shooting.style.animationDelay = Math.random() * 8 + 's';
+  starContainer.appendChild(shooting);
+}
+
+// UNIVERSE DATA
+
+const PASSWORD = "1122";
+
+const universes = [
+{
+  icon: "🌌",
+  title: "The Universe Where We Never Met",
+  text: `In this universe, we never meet.
+
+I wake up every day, go to work, and come home, just like any other day. Rawan never tries to introduce us to each other, and our paths never cross.
+
+I grow older, living my life without ever knowing you existed. I spend my entire life not knowing what I'm missing or that somewhere out there, there was someone like you.
+
+And maybe that's the saddest part of this universe. I never get to know what it feels like to have you in my life.`
+},
+{
+  icon: "💍",
+  title: "The Universe Where We're Ariana and Laith",
+  text: `In this universe, I'm a lady named Ariana, and you're a man named Laith.
+
+We get to know each other through our mutual friend, your cousin Radwan, and somehow, somewhere along the way, we fall in love and end up getting married.
+
+Hahahahahaha. I had to include this one.
+
+I don't know how this universe works, but apparently, even when we're completely different people, somehow we still find our way to each other.`
+},
+{
+  icon: "🌷",
+  title: "The Universe Where We Grew Up Together",
+  text: `This is one of my favourites.
+
+We meet when we're still little. It's 2010. I'm walking through the streets of Riyadh when I stumble upon you at a park.
+
+We're around 10 and 6 years old, and somehow, we become friends.
+
+We grow up together. We make memories, experience life side by side, and watch each other change over the years.
+
+We see each other's childhoods, awkward phases, dreams, fears, and everything in between.
+
+Before we even realise it, we've become such a huge part of each other's lives that being together feels like the most natural thing in the world.
+
+And eventually, we get married.
+
+I really love this universe because it means I would've had you in my life for almost as long as I could remember.`
+},
+{
+  icon: "🐭",
+  title: "The Universe Where We're Mickey and Minnie",
+  text: `In this universe, my name is Mickey and yours is Minnie.
+
+We're just two fictional characters living in the Disney universe.
+
+We meet in Disney (City Run) in 1928, when Daisy Duck introduces us to each other. We become inseparable, fall in love, and stay together forever.
+
+And I mean literally forever, because we're Mickey and Minnie.
+
+No matter how many years pass, no matter what happens, we're always there together.
+
+Honestly, that's pretty cute.`
+},
+{
+  icon: "❤️",
+  title: "The Universe I'm Most Grateful For",
+  text: `And then there's this universe.
+
+The one we're actually living in.
+
+The one I'm genuinely so grateful to be a part of.
+
+Out of every possible universe, every possible version of our lives, every possible path we could've taken, somehow we ended up here.
+
+Here, where I met you.
+
+Here, where I got to know you.
+
+Here, where we fell in love.
+
+Here, where we made our own memories.
+
+I honestly don't know what I'd do without you, and I'm so happy we've made it to one year together.
+
+I hope this is only the beginning of many more years. I hope every year ahead brings better things for you and for us. I hope life is kinder to you, that you achieve everything you dream of, and that we continue growing together through everything life brings our way.
+
+I'm sorry this is a little late, but I really wanted you to know how much you mean to me.
+
+Because out of all the universes we could've existed in, all the people we could've been, and all the lives we could've lived...
+
+This is the universe where we found each other.
+
+And honestly?
+
+I wouldn't trade this universe for any other.`,
+  final: true
+}
+];
+
+let selected = 0;
+let unlocked = new Set();
+
+// OPEN PASSWORD
+
+function openLock(index) {
+  selected = index;
+  document.getElementById('password').value = '';
+  document.getElementById('error').textContent = '';
+  document.getElementById('lockModal').classList.add('active');
+
+  setTimeout(() => {
+    document.getElementById('password').focus();
+  }, 200);
+}
+
+// UNLOCK
+
+function unlockUniverse() {
+  const entered = document.getElementById('password').value;
+
+  if(entered !== PASSWORD) {
+    document.getElementById('error').textContent =
+      "Wrong code! This universe remains locked. ❤️";
+    return;
+  }
+
+  unlocked.add(selected);
+  updateProgress();
+
+  document.getElementById('lockModal').classList.remove('active');
+  showStory(selected);
+}
+
+// STORY
+
+function showStory(index) {
+  selected = index;
+
+  const universe = universes[index];
+
+  document.getElementById('storyIcon').textContent = universe.icon;
+  document.getElementById('storyTitle').textContent = universe.title;
+  document.getElementById('storyText').textContent = universe.text;
+
+  const extra = document.getElementById('finalExtra');
+
+  if(universe.final) {
+    extra.innerHTML = `
+      <div class="story-decoration">💗✨💗</div>
+      <h2 style="color:#ffb7d5;font-size:34px">
+        HAPPY ANNIVERSARY!
+      </h2>
+      <p style="text-align:center;font-size:15px;color:#f3d49a">
+        November 22 · One year together
+      </p>
+      <p class="final-message">
+        I wouldn't trade this universe for any other. ❤️
+      </p>
+      <div class="story-decoration celebration">💞</div>
+    `;
+  } else {
+    extra.innerHTML = '';
+  }
+
+  document.getElementById('storyModal').classList.add('active');
+}
+
+// NEXT UNIVERSE
+
+function nextUniverse() {
+  const next = (selected + 1) % universes.length;
+
+  closeStory();
+
+  if(unlocked.has(next)) {
+    setTimeout(() => showStory(next), 300);
+  } else {
+    setTimeout(() => openLock(next), 300);
+  }
+}
+
+// CLOSE WINDOWS
+
+function closeModal() {
+  document.getElementById('lockModal').classList.remove('active');
+}
+
+function closeStory() {
+  document.getElementById('storyModal').classList.remove('active');
+}
+
+// PROGRESS
+
+function updateProgress() {
+  const count = unlocked.size;
+
+  document.getElementById('progressText').textContent =
+    count + ' of 5 universes discovered';
+
+  document.getElementById('progressFill').style.width =
+    (count / 5 * 100) + '%';
+}
+
+// ENTER KEY
+
+document.getElementById('password').addEventListener('keydown', e => {
+  if(e.key === 'Enter') unlockUniverse();
+});
+
+// CLICK OUTSIDE TO CLOSE
+
+document.querySelectorAll('.modal').forEach(modal => {
+  modal.addEventListener('click', e => {
+    if(e.target === modal) {
+      modal.classList.remove('active');
+    }
+  });
+});
+
+</script>
+
+</body>
+</html>
